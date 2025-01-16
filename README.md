@@ -1,9 +1,9 @@
-<h1 align="center">Hi there, I'm <a href="https://daniilshat.ru/" target="_blank">Arseniy</a> 
+<h1 align="center">Hi there, I'm <a href="https://github.com/shirokovars/" target="_blank">Arseniy</a> 
 <img src="https://github.com/blackcater/blackcater/raw/main/images/Hi.gif" height="32"/></h1>
 <h3 align="center">QA Automation Engineer from Serbia </h3>
 
 About me:
-
+To do
 
 ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)
 ![Selenium](https://img.shields.io/badge/-selenium-%43B02A?style=for-the-badge&logo=selenium&logoColor=white)
