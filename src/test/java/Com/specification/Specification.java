@@ -22,7 +22,7 @@ public class Specification {
         return new ResponseSpecBuilder()
                 .log(LogDetail.STATUS)
                 .expectContentType("application/json")
-        .expectStatusCode(HttpStatus.SC_OK)
+                .expectStatusCode(HttpStatus.SC_OK)
                 .expectResponseTime(lessThanOrEqualTo(3L), TimeUnit.SECONDS)
                 .build();
 

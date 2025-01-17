@@ -1,6 +1,6 @@
 <h1 align="center">Hi there, I'm <a href="https://github.com/shirokovars/" target="_blank">Arseniy</a> 
 <img src="https://github.com/blackcater/blackcater/raw/main/images/Hi.gif" height="32"/></h1>
-<h3 align="center">QA Automation Engineer from Serbia </h3>
+<h3 align="center">QA Fullstack Engineer </h3>
 
 About me:
 To do
