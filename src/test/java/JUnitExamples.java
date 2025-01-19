@@ -8,9 +8,13 @@ public class JUnitExamples {
         System.out.println("Just beforeAll");
         }
     @Test
-
-
     void firstTest() {
         System.out.println("First Examples");
+
+    }
+
+        @Test
+        void secondTest() {
+            System.out.println("Second Examples");
     }
 }

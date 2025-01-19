@@ -12,6 +12,11 @@ public class CheckBox {
         Configuration.holdBrowserOpen = true;
 
         open("https://demoqa.com/checkbox");
+        $(".rct-icon").click();
+        $("//*[@id='tree-node-private']");
+
+
+
 
 
 
