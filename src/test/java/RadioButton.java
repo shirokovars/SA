@@ -16,7 +16,5 @@ import com.codeborne.selenide.Condition;
         $(".text-success").shouldHave(Condition.text("Yes"));
 
 
-
-
         }
 }
