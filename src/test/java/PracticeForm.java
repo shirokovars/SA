@@ -37,6 +37,19 @@ public class PracticeForm {
 
         $(".react-datepicker__year-select").selectOption("1995");
 
+        $(".react-datepicker__day--018:not(.react-datepicker__day--outside-month)").click();
+
+        $("#currentAddress").setValue("Lenina apt 145");
+
+        $("#hobbies-checkbox-1").parent().click();
+
+        $("#hobbies-checkbox-2").parent().click();
+
+        $("#hobbies-checkbox-3").parent().click();
+
+        $("#subjectsContainer").setValue("idk what it is?");
+
+
 
         //$("[id=firstName]").setValue("2649 Post Avenue, 60126");
 
