@@ -2,6 +2,8 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.Test;
 
+import java.io.File;
+
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
@@ -18,6 +20,8 @@ public class PracticeForm {
     @Test
     void successfulSearchTest() {
         Configuration.holdBrowserOpen = true;
+
+        Configuration.browserSize = "1900x1600";
 
         open("https://demoqa.com/automation-practice-form");
 
@@ -47,9 +51,13 @@ public class PracticeForm {
 
         $("#hobbies-checkbox-3").parent().click();
 
-        $("#subjectsContainer").setValue("idk what it is?");
+        $("#subjectsInput").setValue("Arts").pressEnter();
 
+        $("#uploadPicture").uploadFromClasspath("resources/123.jpg");
 
+        $("#stateCity-wrapper").$(byText("NCR")).click();
+
+        // $("uploadPicture").uploadFile(new File("/test/resources/123.jpg"));
 
         //$("[id=firstName]").setValue("2649 Post Avenue, 60126");
 
