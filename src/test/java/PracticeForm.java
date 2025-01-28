@@ -18,7 +18,7 @@ import static com.codeborne.selenide.Selectors.withTextCaseInsensitive;
 
 public class PracticeForm {
     @Test
-    void successfulSearchTest() {
+    void successfulRegistrationTest() {
         Configuration.holdBrowserOpen = true;
 
         Configuration.browserSize = "1900x1600";
@@ -43,8 +43,6 @@ public class PracticeForm {
 
         $(".react-datepicker__day--018:not(.react-datepicker__day--outside-month)").click();
 
-        $("#currentAddress").setValue("Lenina apt 145");
-
         $("#hobbies-checkbox-1").parent().click();
 
         $("#hobbies-checkbox-2").parent().click();
@@ -53,19 +51,31 @@ public class PracticeForm {
 
         $("#subjectsInput").setValue("Arts").pressEnter();
 
-        $("#uploadPicture").uploadFromClasspath("resources/123.jpg");
+        $("#uploadPicture").uploadFromClasspath("img/123.jpg");
+
+        $("#currentAddress").setValue("Lenina apt 145");
+
+        $("#state").click();
 
         $("#stateCity-wrapper").$(byText("NCR")).click();
 
-        // $("uploadPicture").uploadFile(new File("/test/resources/123.jpg"));
+        $("#city").click();
 
-        //$("[id=firstName]").setValue("2649 Post Avenue, 60126");
+        $("#stateCity-wrapper").$(byText("Noida")).click();
 
-        $("[id=permanentAddress]").setValue("2746 Snyder Avenue, 73425");
+        $("#submit").click();
 
-        $("[id=submit]").click();
+        $(".modal-dialog").should(appear);
 
-        $("[id=email]").shouldHave(Condition.text("gmail"));
+        $("#example-modal-sizes-title-lg").shouldHave(text("the form"));
+
+        $(".table-responsive").shouldHave(text("Thom Yorke"), text("0605590290"));
+
+
+
+
+
+
 
     }
 }
