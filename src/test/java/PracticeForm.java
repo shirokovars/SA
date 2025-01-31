@@ -71,11 +71,5 @@ public class PracticeForm {
 
         $(".table-responsive").shouldHave(text("Thom Yorke"), text("0605590290"));
 
-
-
-
-
-
-
     }
 }
