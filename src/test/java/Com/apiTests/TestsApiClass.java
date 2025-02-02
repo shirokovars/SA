@@ -1,5 +1,3 @@
-package Com.apiTests;
-
 import io.restassured.RestAssured;
 import org.junit.jupiter.api.Test;
 import static org.hamcrest.Matchers.is;
@@ -8,10 +6,30 @@ public class TestsApiClass {
 
     @Test
     public void whenRequestGet() {
-        RestAssured.
-                when().request("GET", "https:petstore.swagger.io/v2/pet/findByStatus").
-                then().assertThat().statusCode(200).
-                and().body("status", is("available"));
+        String response = RestAssured
+             .given()
+                .baseUri("https://petstore.swagger.io/v2")
+             .when().get("/store/inventory")
+             .then().statusCode(200)
+                .extract()
+                .asString();
+                System.out.println(response);
 
     }
+}
+
+
+@Test
+public void whenRequestPost() {
+    String response = RestAssured
+            .given()
+                .baseUri("https://petstore.swagger.io/v2")
+            .header("Content-Type", "application/json")
+            .body(jsonBody)
+            .when().post("/user")
+            .then().statusCode(201)
+            .extract()
+            .asString();
+            System.out.println(response);
+
 }
