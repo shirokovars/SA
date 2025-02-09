@@ -16,7 +16,7 @@ public class TestsApiClass {
                 System.out.println(response);
 
     }
-}
+
 
 
 @Test
@@ -32,4 +32,5 @@ public void whenRequestPost() {
             .asString();
             System.out.println(response);
 
+}
 }
