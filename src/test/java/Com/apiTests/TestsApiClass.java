@@ -8,10 +8,10 @@ public class TestsApiClass {
     @Test
     public void whenRequestGet() {
         String response = RestAssured
-             .given()
+                .given()
                 .baseUri("https://petstore.swagger.io/v2")
-             .when().get("/store/inventory")
-             .then().statusCode(200)
+                .when().get("/store/inventory")
+                .then().assertThat().statusCode(200).body("username", equalTo("string"))
                 .extract()
                 .asString();
                 System.out.println(response);
@@ -65,4 +65,40 @@ public void whenRequestPut() {
 
 
 }
+
+
+@Test
+    public void whenRequestDelete() {
+        String response = RestAssured
+                .given().baseUri("https://petstore.swagger.io/v2")
+                .header("Content-Type","application/json")
+                .when().delete("/user/9223372036854775807")
+                .then().statusCode(404)
+                .extract()
+                .asString();
+                System.out.println(response);
+
+
+
 }
+@Test
+    public void whenRequestGet2() {
+        String response = RestAssured
+                .given().baseUri("https://petstore.swagger.io/v2")
+                .header("Content-type", "application/json")
+                .when().get("/store/inventory")
+                .then().assertThat().statusCode(200)
+                .extract()
+                .asString();
+        System.out.println(response);
+
+}
+
+
+
+
+}
+
+
+
+
