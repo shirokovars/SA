@@ -1,7 +1,8 @@
 import io.restassured.RestAssured;
 import org.junit.jupiter.api.Test;
 import java.io.File;
-import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.*;
+
 
 public class TestsApiClass {
 
@@ -11,7 +12,7 @@ public class TestsApiClass {
                 .given()
                 .baseUri("https://petstore.swagger.io/v2")
                 .when().get("/store/inventory")
-                .then().assertThat().statusCode(200).body("username", equalTo("string"))
+                .then().assertThat().statusCode(200).body("available", notNullValue())
                 .extract()
                 .asString();
                 System.out.println(response);
