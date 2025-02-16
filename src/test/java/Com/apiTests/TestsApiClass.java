@@ -67,7 +67,7 @@ public void whenRequestPost() {
             .header("Content-Type", "application/json")
             .body(jsonFile)
             .when().post("/user")
-            .then().statusCode(200)
+            .then().assertThat().statusCode(200).body("message", notNullValue())
             .time(lessThan(3000L))
             .extract()
             .asString();
@@ -84,12 +84,31 @@ public void whenRequestPost() {
             .header("Content-Type", "application/json")
             .body(jsonFile)
             .when().post("/store/inventory")
-            .then().statusCode(405)
+            .then().assertThat().statusCode(405)
             .time(lessThan(3000L))
             .extract()
             .asString();
             System.out.println(response);
 }
+
+
+@Test
+    public void whenRequestPost2() {
+        File jsonFile = new File("src/test/resources/postpets.json");
+
+        String response = RestAssured
+                .given()
+                .baseUri("https://petstore.swagger.io/v2")
+                .header("Content-Type", "application/json")
+                .body(jsonFile)
+                .when().post("/store/order")
+                .then().assertThat().statusCode(200).body("complete", equalTo(false)).body("id", notNullValue())
+                .time(lessThan(3000L))
+                .extract()
+                .asString();
+        System.out.println(response);
+
+    }
 @Test
 public void whenRequestPut() {
     File jsonFile = new File("src/test/resources/postpets.json");
@@ -98,7 +117,7 @@ public void whenRequestPut() {
             .header("Content-Type", "application/json")
             .body(jsonFile)
             .when().put("/user/9223372036854775629")
-            .then().statusCode(200)
+            .then().assertThat().statusCode(200)
             .time(lessThan(3000L))
             .extract()
             .asString();
@@ -114,7 +133,7 @@ public void whenRequestPut() {
                 .given().baseUri("https://petstore.swagger.io/v2")
                 .header("Content-Type","application/json")
                 .when().delete("/user/9223372036854775807")
-                .then().statusCode(404)
+                .then().assertThat().statusCode(404)
                 .time(lessThan(3000L))
                 .extract()
                 .asString();
@@ -123,6 +142,8 @@ public void whenRequestPut() {
 
 
     }
+
+
 }
 
 
