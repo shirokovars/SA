@@ -1,7 +1,9 @@
 import io.restassured.RestAssured;
 import org.junit.jupiter.api.Test;
 import java.io.File;
+
 import static org.hamcrest.Matchers.*;
+import static org.hamcrest.Matchers.notNullValue;
 
 
 public class TestsApiClass {
@@ -143,8 +145,52 @@ public void whenRequestPut() {
 
     }
 
+@Test
+    public void whenRequestPostpet() {
+        File jsonFile = new File("src/test/resources/petsbody.json");
+        String response = RestAssured
+                .given().baseUri("https://petstore.swagger.io/v2")
+                .header("Content-Type","application/json")
+                .body(jsonFile)
+                .when().post("/pet")
+                .then().assertThat().statusCode(200)
+                .time(lessThan(3000L))
+                .extract()
+                .asString();
+        System.out.println(response);
+
+    }
+    @Test
+    public void whenRequestGetpet() {
+
+        String response = RestAssured
+                .given().baseUri("https://petstore.swagger.io/v2")
+                .header("Content-Type","application/json")
+                .when().get("/pet/findByStatus?status=sold")
+                .then().assertThat().statusCode(200).body("name", notNullValue()).body("id", notNullValue())
+                .time(lessThan(3000L))
+                .extract()
+                .asString();
+        System.out.println(response);
+
+    }
+    @Test
+    public void whenRequestDeletepet() {
+
+        String response = RestAssured
+                .given().baseUri("https://petstore.swagger.io/v2")
+                .header("Content-Type","application/json")
+                .when().delete("/pet/9223372036854775807")
+                .then().assertThat().statusCode(200)
+                .time(lessThan(3000L))
+                .extract()
+                .asString();
+        System.out.println(response);
+
+    }
 
 }
+
 
 
 
