@@ -23,9 +23,10 @@ public class NewUItest {
     Configuration.browserSize = "1900x1600";
 
     open("https://github.com");
-    $("[data-target='qbsearch-input.inputButtonText']").setValue("Arts").pressEnter();
-    $("[data-target='qbsearch-input.inputButtonText']").click();
+    $("[placeholder='Search or jump to...']").should(Condition.visible).click();
+    $("[name='query-builder-test']").setValue("selenide").pressEnter();
 
 
-    }
+
+}
 }
