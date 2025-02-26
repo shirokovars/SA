@@ -25,8 +25,8 @@ public class NewUItest {
     open("https://github.com");
     $("[placeholder='Search or jump to...']").should(Condition.visible).click();
     $("[name='query-builder-test']").setValue("selenide").pressEnter();
-
-
+    $("[href='/selenide/selenide']").click();
+    $("[href='/selenide/selenide']").shouldHave(Condition.text("selenide/selenide"));
 
 }
 }
